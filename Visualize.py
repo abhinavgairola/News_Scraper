@@ -61,9 +61,10 @@ class Visualize:
 
 if __name__ =='__main__':    
     Data = Read()
-    data = Data.read_json(r'232021/ABC_news.json') 
+    data = Data.read_json(r'432021/ABC_news.json') 
     plot = Visualize()
     All_figures=[]
+    Corpus = []
     for key, value in data.items():
         if value is not None:
             
@@ -71,8 +72,9 @@ if __name__ =='__main__':
             temp_2 = "".join(value).replace('"','').replace('\'','').replace(',','').replace('.',' ').replace('--','').replace('———',' ').lower()
             temp_2 = gensim.parsing.preprocessing.remove_stopwords(temp_2).upper()
             Article = (temp_2.split())
+            Corpus.append(temp_2)
 
-            print("This is the article {}".format(Article))
+            #print("This is the article {}".format(Article))
             counts = (collections.Counter(Article).most_common(10))
             #print(counts)
             y =[]
@@ -85,4 +87,11 @@ if __name__ =='__main__':
         
         All_figures.append(plot.bar(x,y,'Counts','Words','Word Counts','Legend'))
     (All_figures[20]).show()
+data = (collections.Counter(Corpus).most_common(10))
+
+for items in data:
+    y.append(items[0])
+    x.append(items[1])
+    print(y,x)
+    #plot.bar(x,y,'Counts','Words','Word Counts','Legend').show()
     
