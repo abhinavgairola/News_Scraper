@@ -1,1 +1,1 @@
-# Flexible news aggregator.
+## Flexible news aggregator.
