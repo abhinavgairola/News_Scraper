@@ -61,7 +61,7 @@ class Visualize:
 
 if __name__ =='__main__':    
     Data = Read()
-    data = Data.read_json(r'432021/ABC_news.json') 
+    data = Data.read_json(r'532021/ABC_news.json') 
     plot = Visualize()
     All_figures=[]
     Corpus = []
